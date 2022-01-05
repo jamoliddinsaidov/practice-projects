@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Border Radius Previewer</title>
+  </head>
+  <body class="pt-10">
+    <h1 class="text-center text-2xl font-extrabold mb-32 text-orange-500">Border Radius Previewer</h1>
+
+    <div class="flex justify-between items-center w-11/12 sm:w-10/12 h-64 md:w-3/4 lg:w-1/2 mx-auto">
+      <div class="flex flex-col grow">
+        <input
+          name="borderTopLeftRadius"
+          type="number"
+          placeholder="top left"
+          class="border shadow text-orange-500 rounded-lg p-2 font-semibold outline-none transition ease-in-out delay-100 focus:border-orange-500 mb-4 w-1/2"
+          required
+        />
+
+        <input
+          name="borderTopRightRadius"
+          type="number"
+          placeholder="top right"
+          class="border shadow text-orange-500 rounded-lg p-2 font-semibold outline-none transition ease-in-out delay-100 focus:border-orange-500 mb-4 w-1/2"
+          required
+        />
+
+        <input
+          name="borderBottomLeftRadius"
+          type="number"
+          placeholder="bottom left"
+          class="border shadow text-orange-500 rounded-lg p-2 font-semibold outline-none transition ease-in-out delay-100 focus:border-orange-500 mb-4 w-1/2"
+          required
+        />
+
+        <input
+          name="borderBottomRightRadius"
+          type="number"
+          placeholder="bottom right"
+          class="border shadow text-orange-500 rounded-lg p-2 font-semibold outline-none transition ease-in-out delay-100 focus:border-orange-500 mb-4 w-1/2"
+          required
+        />
+
+        <textarea
+          placeholder="result..."
+          disabled
+          class="result-textarea border shadow text-orange-500 rounded-lg p-2 outline-none mb-4 w-3/4 h-36"
+        ></textarea>
+
+        <button
+          class="copy-btn border w-1/2 text-orange-500 shadow font-semibold rounded-lg p-2 outline-none transition ease-in-out delay-50 hover:bg-orange-500 hover:text-white"
+        >
+          copy
+        </button>
+
+        <p class="alert-text hidden text-md mt-4"></p>
+      </div>
+
+      <div class="box w-56 h-56 bg-orange-600 shadow-md shadow-orange-500 border border-orange-600"></div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
