@@ -123,15 +123,13 @@ function calculate({ value1, value2, operator }) {
 }
 
 function changeCalcValue1(value, isReset) {
-  if (isReset) calculator.value1 = value
-  else if (resultTxt.innerText === '0') calculator.value1 = value
+  if (isReset || resultTxt.innerText === '0') calculator.value1 = value
   else calculator.value1 += value
   resultTxt.innerText = calculator.value1
 }
 
 function changeCalcValue2(value, isReset) {
-  if (isReset) calculator.value2 = value
-  else if (resultTxt.innerText === '0') calculator.value2 = value
+  if (isReset || resultTxt.innerText === '0') calculator.value2 = value
   else calculator.value2 += value
   resultTxt.innerText = calculator.value2
 }
