@@ -52,5 +52,5 @@ function validateUserInput(input) {
 
 function showResult(input, result) {
   resultTxt.classList.remove('hidden')
-  resultTxt.innerText = `${input} => ${result}`
+  resultTxt.innerText = `${input} ➔ ${result}`
 }
