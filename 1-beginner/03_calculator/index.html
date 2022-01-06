@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>JS Calculator</title>
+  </head>
+  <body class="bg-cyan-200 h-screen flex flex-col justify-center items-center">
+    <div
+      class="calculator-container grid grid-cols-4 grid-rows-6 w-1/3 h-4/5 text-cyan-200 bg-slate-900 px-10 py-12 shadow shadow-slate-500/50 rounded-xl"
+    >
+      <p
+        class="col-span-3 text-right bg-cyan-100 text-slate-900 mb-4 pt-3 pr-1 rounded-md shadow font-semibold text-5xl"
+      >
+        0
+      </p>
+      <button class="delete-btn font-semibold text-4xl mb-4 transition ease delay-50"><</button>
+    </div>
+
+    <script src="./ui.js"></script>
+  </body>
+</html>
