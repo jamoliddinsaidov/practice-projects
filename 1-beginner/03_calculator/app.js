@@ -85,7 +85,7 @@ function implementCalculatorFunctions(btnText, isNumber, isOperator) {
 }
 
 function calculate({ value1, value2, operator }) {
-  if (value2.includes('0')) {
+  if (value2 === '0' && operator === '/') {
     showErrorMsg("That's not gonna happen :)")
     return ''
   }
