@@ -91,16 +91,34 @@
     <h1 class="text-white font-bold text-5xl text-center mt-36 mb-12">Christmas Lights</h1>
     <div class="flex justify-center items-center">
       <button
-        class="on-btn border border-white rounded-full text-white font-semibold px-4 py-2 text-lg transition ease 100 hover:text-stone-900 hover:bg-white"
+        class="on-btn border border-white rounded-full text-white font-semibold px-4 py-2 text-lg transition ease delay-100 hover:text-stone-900 hover:bg-white"
       >
-        ON
+        on
       </button>
       <button
-        class="off-btn border border-white rounded-full text-white font-semibold px-4 py-2 text-lg transition ease 100 hover:text-stone-900 hover:bg-white mx-6"
+        class="off-btn border border-white rounded-full text-white font-semibold px-4 py-2 text-lg transition ease delay-100 hover:text-stone-900 hover:bg-white mx-6"
       >
-        OFF
+        off
       </button>
+      <div>
+        <input
+          type="number"
+          min="1"
+          max="5"
+          required
+          class="range-input bg-stone-900 w-36 border border-white rounded-full text-white font-semibold px-4 py-2 text-lg ml-2"
+          placeholder="from 1 to 5"
+        />
+        <button
+          class="run-btn border border-white rounded-full text-white font-semibold px-4 py-2 text-lg transition ease delay-100 hover:text-stone-900 hover:bg-white"
+        >
+          run
+        </button>
+      </div>
     </div>
+
+    <p class="error-text opacity-0 text-center text-lg text-red-500 mt-8 font-medium transition delay-100 ease-in-out">Error</p>
+
     <script src="./app.js"></script>
   </body>
 </html>
