@@ -33,19 +33,7 @@ let timerID
 // event listeners
 onBtn.addEventListener('click', turnOnLightbulbs)
 offBtn.addEventListener('click', turnOffLightbulbs)
-runBtn.addEventListener('click', () => {
-  let currRange = +rangeInput.value
-
-  if (currRange > 0 && currRange <= 5 && isRunning) {
-    range = currRange
-    stopAnimation()
-    startAnimation()
-  } else if (!isRunning) {
-    showErrorMsg('lights are off')
-  } else {
-    showErrorMsg('please enter numbers between 1 and 5')
-  }
-})
+runBtn.addEventListener('click', runRange)
 
 // functions
 function turnOnLightbulbs() {
@@ -68,6 +56,20 @@ function turnOffLightbulbs() {
 
     isRunning = !isRunning
     stopAnimation()
+  }
+}
+
+function runRange() {
+  let currRange = +rangeInput.value
+
+  if (currRange > 0 && currRange <= 5 && isRunning) {
+    range = currRange
+    stopAnimation()
+    startAnimation()
+  } else if (!isRunning) {
+    showErrorMsg('lights are off')
+  } else {
+    showErrorMsg('please enter numbers between 1 and 5')
   }
 }
 
