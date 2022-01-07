@@ -49,22 +49,26 @@ runBtn.addEventListener('click', () => {
 
 // functions
 function turnOnLightbulbs() {
-  lightbulbs.forEach((bulb, index) => {
-    changeClasses(bulb, defaultBgColor, bgColors[index])
-  })
+  if (!isRunning) {
+    lightbulbs.forEach((bulb, index) => {
+      changeClasses(bulb, defaultBgColor, bgColors[index])
+    })
 
-  isRunning = !isRunning
-  startAnimation()
+    isRunning = !isRunning
+    startAnimation()
+  }
 }
 
 function turnOffLightbulbs() {
-  lightbulbs.forEach((bulb, index) => {
-    changeClasses(bulb, bgColors[index], defaultBgColor)
-    changeClasses(bulb, shadowColors[index])
-  })
+  if (isRunning) {
+    lightbulbs.forEach((bulb, index) => {
+      changeClasses(bulb, bgColors[index], defaultBgColor)
+      changeClasses(bulb, shadowColors[index])
+    })
 
-  isRunning = !isRunning
-  stopAnimation()
+    isRunning = !isRunning
+    stopAnimation()
+  }
 }
 
 function startAnimation() {
