@@ -94,9 +94,11 @@ function stopAnimation() {
 }
 
 function animateShadow(bulb, index) {
+  changeClasses(bulb, '', 'shadow-2xl')
   changeClasses(bulb, '', shadowColors[index])
 
   setTimeout(() => {
+    changeClasses(bulb, 'shadow-2xl')
     changeClasses(bulb, shadowColors[index])
   }, 250)
 }
