@@ -40,7 +40,7 @@ function generateCSS(e) {
     let contentArr = cssContent.split('\n')
     cssContent = updatePreviousRadiusValue(contentArr, name, value)
   } else {
-    cssContent += `${name}: ${value}px\n`
+    cssContent += `${name}: ${value}px;\n`
   }
 
   resultTxt.innerHTML = cssContent
@@ -74,7 +74,7 @@ function updatePreviousRadiusValue(contentArr, name, value) {
     if (a.includes(name) && value === '') {
       newContentArr.push('')
     } else if (a.includes(name)) {
-      newContentArr.push(`${name}: ${value}px\n`)
+      newContentArr.push(`${name}: ${value}px;\n`)
     } else {
       newContentArr.push(a + '\n')
     }
