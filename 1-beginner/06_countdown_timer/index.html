@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Countdown Timer</title>
+  </head>
+  <body class="bg-blue-300">
+    <h1 class="text-center text-gray-900 my-12 font-thin text-5xl uppercase tracking-wider">countdown</h1>
+
+    <form class="inputs-container w-1/4 mx-auto flex flex-col items-between justify-center">
+      <input
+        type="text"
+        class="mb-2 bg-blue-300 border-2 rounded border-gray-800 py-1 px-2 outline-none placeholder:text-black"
+        name="name"
+        placeholder="Event name"
+        required
+        autocomplete="off"
+      />
+      <input
+        type="date"
+        class="mb-2 bg-blue-300 border-2 rounded border-gray-800 py-1 px-2 outline-none"
+        name="date"
+        required
+      />
+      <input type="time" class="mb-2 bg-blue-300 border-2 rounded border-gray-800 py-1 px-2 outline-none" name="time" />
+      <button
+        type="submit"
+        class="mb-2 bg-blue-300 border-2 rounded border-gray-800 py-1 px-2 outline-none uppercase transition ease delay-100 hover:bg-black hover:text-blue-300 cursor-pointer font-bold text-lg"
+      >
+        start
+      </button>
+    </form>
+
+    <div class="date-container w-1/2 mx-auto flex justify-between text-lg items-center mt-12 text-center uppercase">
+      <div>
+        <p class="days-text text-8xl mb-1">14</p>
+        <p>days</p>
+      </div>
+      <div>
+        <p class="hours-text text-8xl mb-1">20</p>
+        <p>hours</p>
+      </div>
+      <div>
+        <p class="minutes-text text-8xl mb-1">58</p>
+        <p>minutes</p>
+      </div>
+      <div>
+        <p class="seconds-text text-8xl mb-1">39</p>
+        <p>seconds</p>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
