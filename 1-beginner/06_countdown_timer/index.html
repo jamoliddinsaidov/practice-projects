@@ -28,30 +28,42 @@
       <input type="time" class="mb-2 bg-blue-300 border-2 rounded border-gray-800 py-1 px-2 outline-none" name="time" />
       <button
         type="submit"
-        class="mb-2 bg-blue-300 border-2 rounded border-gray-800 py-1 px-2 outline-none uppercase transition ease delay-100 hover:bg-black hover:text-blue-300 cursor-pointer font-bold text-lg"
+        class="start-btn mb-2 bg-blue-300 border-2 rounded border-gray-800 py-1 px-2 outline-none uppercase transition ease delay-100 hover:bg-black hover:text-blue-300 cursor-pointer font-bold text-lg"
       >
-        start
+        count
       </button>
     </form>
 
-    <div class="date-container w-1/2 mx-auto flex justify-between text-lg items-center mt-12 text-center uppercase">
-      <div>
-        <p class="days-text text-8xl mb-1">14</p>
-        <p>days</p>
-      </div>
-      <div>
-        <p class="hours-text text-8xl mb-1">20</p>
-        <p>hours</p>
-      </div>
-      <div>
-        <p class="minutes-text text-8xl mb-1">58</p>
-        <p>minutes</p>
-      </div>
-      <div>
-        <p class="seconds-text text-8xl mb-1">39</p>
-        <p>seconds</p>
+    <div class="countdown-container opacity-0 transition ease delay-100">
+      <h1 class="event-text text-center text-gray-900 mt-12 text-2xl font-semibold">
+        <span></span>
+        will start after
+      </h1>
+
+      <div class="date-container w-1/2 mx-auto flex justify-between text-lg items-center mt-10 text-center uppercase">
+        <div>
+          <p class="days-text text-8xl mb-1">0</p>
+          <p>days</p>
+        </div>
+        <div>
+          <p class="hours-text text-8xl mb-1">0</p>
+          <p>hours</p>
+        </div>
+        <div>
+          <p class="minutes-text text-8xl mb-1">0</p>
+          <p>minutes</p>
+        </div>
+        <div>
+          <p class="seconds-text text-8xl mb-1">0</p>
+          <p>seconds</p>
+        </div>
       </div>
     </div>
+
+    <p class="error-text opacity-0 text-center text-lg text-red-500 mt-8 font-medium transition delay-100 ease-in-out">
+      error
+    </p>
+
     <script src="./app.js"></script>
   </body>
 </html>
