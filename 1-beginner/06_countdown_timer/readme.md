@@ -2,6 +2,10 @@
 
 Demo can be found [here](https://sjamoliddin.github.io/practice-projects/1-beginner/06_countdown_timer/index.html)
 
+## Preview
+
+![Input example](./example.png 'Preview')
+
 ## User Stories
 
 - [x] User can see an event input box containing an event name field, an date field, an optional time, and a 'Start' button.
