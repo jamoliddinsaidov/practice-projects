@@ -24,14 +24,7 @@ function startCountDown(e) {
     renderTimeDetails()
     showCountDownContainer()
     countDown()
-
-    // stop the count down
-    setInterval(() => {
-      let { days, hours, minutes, seconds } = countdownDetails
-      if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
-        clearInterval(timerID)
-      }
-    }, 950)
+    finishCountDown()
   }
 }
 
@@ -119,7 +112,6 @@ function getMonthDays(date, count, start) {
 
   if (count > 0) {
     for (let i = start; i < start + count; i++) {
-      console.log(i)
       daysOfMonths += new Date(date.getFullYear(), i, 0).getDate()
     }
   } else {
@@ -165,4 +157,13 @@ function showErrorMsg(msg) {
     errorTxt.classList.remove('opacity-100')
     errorTxt.classList.add('opacity-0')
   }, 2000)
+}
+
+function finishCountDown() {
+  setInterval(() => {
+    let { days, hours, minutes, seconds } = countdownDetails
+    if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+      clearInterval(timerID)
+    }
+  }, 950)
 }
