@@ -100,7 +100,7 @@ function calculateLeftDays() {
   let years = yearsDiff * 365
 
   let monthsDiff = futureDate.getMonth() - currentDate.getMonth()
-  let months = monthsDiff * new Date(futureDate.getFullYear(), monthsDiff, 0).getDate()
+  let months = getMonthDays(futureDate, monthsDiff, currentDate.getMonth())
 
   let daysDiff = futureDate.getDate() - currentDate.getDate()
   let days = years + months + daysDiff
@@ -112,6 +112,21 @@ function calculateLeftDays() {
 
   // update values
   countdownDetails = { days, hours, minutes, seconds }
+}
+
+function getMonthDays(date, count, start) {
+  let daysOfMonths = 0
+
+  if (count > 0) {
+    for (let i = start; i < start + count; i++) {
+      console.log(i)
+      daysOfMonths += new Date(date.getFullYear(), i, 0).getDate()
+    }
+  } else {
+    daysOfMonths = new Date(date.getFullYear(), count, 0).getDate()
+  }
+
+  return daysOfMonths
 }
 
 function renderTimeDetails() {
