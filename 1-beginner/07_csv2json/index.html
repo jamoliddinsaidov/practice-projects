@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>CSV to JSON</title>
+  </head>
+  <body>
+    <h1 class="text-center font-bold my-8 text-2xl text-blue-400">CSV to JSON Converter</h1>
+    <textarea
+      placeholder="Paste your csv here"
+      class="input-area border shadow rounded-lg p-2 outline-none transition ease-in-out delay-100 focus:border-blue-400 w-1/3 h-48 mx-auto block"
+      required
+    ></textarea>
+
+    <button
+      class="convert-btn border w-1/5 mx-auto my-6 block text-blue-400 shadow font-semibold rounded-lg p-2 outline-none transition ease-in-out delay-50 hover:bg-blue-400 hover:text-white"
+    >
+      Convert
+    </button>
+
+    <textarea
+      placeholder="Result..."
+      class="result-area border shadow rounded-lg p-2 outline-none transition ease-in-out delay-100 focus:border-blue-400 w-1/3 h-56 mx-auto block"
+      required
+      disabled
+    ></textarea>
+
+    <button
+      class="copy-btn border w-1/5 mx-auto my-6 block text-blue-400 shadow font-semibold rounded-lg p-2 outline-none transition ease-in-out delay-50 hover:bg-blue-400 hover:text-white disabled:opacity-60 disabled:hover:bg-white disabled:hover:text-blue-400"
+      disabled
+    >
+      Copy
+    </button>
+
+    <p class="alert-text opacity-0 text-center text-yellow-400 mt-8 font-medium transition delay-100 ease-in-out">
+      error
+    </p>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
