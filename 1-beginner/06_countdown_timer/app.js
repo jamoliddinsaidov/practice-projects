@@ -114,8 +114,6 @@ function getMonthDays(date, count, start) {
     for (let i = start; i < start + count; i++) {
       daysOfMonths += new Date(date.getFullYear(), i, 0).getDate()
     }
-  } else {
-    daysOfMonths = new Date(date.getFullYear(), count, 0).getDate()
   }
 
   return daysOfMonths
