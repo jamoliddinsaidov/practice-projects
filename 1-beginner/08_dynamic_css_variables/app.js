@@ -34,7 +34,8 @@ cancelBtn.addEventListener('click', (e) => {
   e.preventDefault()
   reset()
 })
-credentialsBtn.addEventListener('click', () => {
+credentialsBtn.addEventListener('click', (e) => {
+  e.preventDefault()
   const msg = `User ID: ${actualUserId} \nPassword: ${actualPassword}`
   alert(msg)
 })
@@ -51,20 +52,24 @@ function validateUserInputs(e) {
     docStyle.setProperty(userIdInputBg, yellowColor)
     docStyle.setProperty(userIdInputBorderColor, yellowColor)
     showWarning("User ID shouldn't contain any spaces or be empty", yellowColor)
-  } else if (passwordValue.match(regex) || !passwordValue) {
-    docStyle.setProperty(passwordInputBg, yellowColor)
-    docStyle.setProperty(passwordInputBorderColor, yellowColor)
-    showWarning("Password shouldn't contain any spaces or be empty", yellowColor)
+    resetPasswordInputCSS()
   } else if (userIdValue !== actualUserId) {
     docStyle.setProperty(userIdInputBg, redColor)
     docStyle.setProperty(userIdInputBorderColor, redColor)
     docStyle.setProperty(userIdInputTextColor, whiteColor)
     showWarning('User ID is incorrect', redColor)
+    resetPasswordInputCSS()
+  } else if (passwordValue.match(regex) || !passwordValue) {
+    docStyle.setProperty(passwordInputBg, yellowColor)
+    docStyle.setProperty(passwordInputBorderColor, yellowColor)
+    showWarning("Password shouldn't contain any spaces or be empty", yellowColor)
+    resetUserIdInputCSS()
   } else if (passwordValue !== actualPassword) {
     docStyle.setProperty(passwordInputBg, redColor)
     docStyle.setProperty(passwordInputBorderColor, redColor)
     docStyle.setProperty(passwordInputTextColor, whiteColor)
     showWarning('Password is incorrect', redColor)
+    resetUserIdInputCSS()
   } else {
     showSuccess('Successfully logged in!')
     reset()
@@ -107,11 +112,18 @@ function reset() {
   password.value = ''
 
   // store default css values
+  resetUserIdInputCSS()
+  resetPasswordInputCSS()
+}
+
+function resetUserIdInputCSS() {
   docStyle.setProperty(userIdInputBg, whiteColor)
   docStyle.setProperty(userIdInputBorderColor, blackColor)
   docStyle.setProperty(userIdInputTextColor, blackColor)
+}
+
+function resetPasswordInputCSS() {
   docStyle.setProperty(passwordInputBg, whiteColor)
-  docStyle.setProperty(passwordInputBorderColor, blackColor)
   docStyle.setProperty(passwordInputBorderColor, blackColor)
   docStyle.setProperty(passwordInputTextColor, blackColor)
 }
