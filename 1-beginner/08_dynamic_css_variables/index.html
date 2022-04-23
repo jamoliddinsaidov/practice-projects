@@ -5,6 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dynamic CSS Variables</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="warning-msg-container hide">
+      <p class="warning-msg">warning!</p>
+    </div>
+
+    <form>
+      <label for="user-id"
+        >User ID
+        <input type="text" id="user-id" />
+      </label>
+
+      <label for="password"
+        >Password
+        <input type="password" id="password" />
+      </label>
+
+      <div class="btn-container">
+        <button class="btn btn-login">Login</button>
+        <button class="btn btn-cancel">Cancel</button>
+        <button class="btn btn-hint">Credentials</button>
+      </div>
+    </form>
+
+    <script src="./app.js"></script>
+  </body>
 </html>
