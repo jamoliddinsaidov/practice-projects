@@ -1,6 +1,6 @@
 # Countdown Timer
 
-Demo can be found [here](https://sjamoliddin.github.io/practice-projects/1-beginner/06_countdown_timer/index.html)
+Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/06_countdown_timer/index.html)
 
 ## Preview
 

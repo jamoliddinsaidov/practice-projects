@@ -1,6 +1,6 @@
 # Border Radius Previewer
 
-Demo can be found [here](https://sjamoliddin.github.io/practice-projects/1-beginner/02_border_radius_previewer/index.html)
+Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/02_border_radius_previewer/index.html)
 
 ## User Stories
 

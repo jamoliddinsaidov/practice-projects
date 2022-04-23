@@ -1,6 +1,6 @@
 # CauseEffect
 
-Demo can be found [here](https://sjamoliddin.github.io/practice-projects/1-beginner/05_cause_effect/index.html)
+Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/05_cause_effect/index.html)
 
 ## User Stories
 

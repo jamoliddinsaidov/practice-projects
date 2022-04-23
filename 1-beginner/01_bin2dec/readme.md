@@ -1,6 +1,6 @@
 # Bin2Dec
 
-Demo can be found [here](https://sjamoliddin.github.io/practice-projects/1-beginner/01_bin2dec/index.html)
+Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/01_bin2dec/index.html)
 
 ## User Stories
 

@@ -1,6 +1,6 @@
 # Dynamic CSS Variables
 
-Demo can be found [here](https://sjamoliddin.github.io/practice-projects/1-beginner/08_dynamic_css_variables/index.html)
+Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/08_dynamic_css_variables/index.html)
 
 ## User Stories
 
