@@ -1,0 +1,146 @@
+:root {
+  --teal-900: rgb(19, 78, 74);
+  --teal-800: rgb(17, 94, 89);
+  --teal-600: rgb(13, 148, 136);
+  --teal-500: rgb(20 184 166);
+  --teal-400: rgb(45, 212, 191);
+  --tracking-wide: 0.025rem;
+  --tracking-wider: 0.05rem;
+}
+
+/* General Styles */
+
+* {
+  box-sizing: border-box;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--teal-900);
+  color: white;
+  padding-bottom: 1rem;
+}
+
+nav,
+form {
+  width: 60%;
+  margin: 2rem auto 0;
+}
+
+/* Nav Styles */
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  letter-spacing: var(--tracking-wide);
+  outline: none;
+  transition: all ease-in-out 300ms;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--teal-500);
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form textarea,
+.note-preview-container {
+  width: 100%;
+  padding: 1.25rem;
+  outline: none;
+  font-size: 1.25rem;
+  background-color: var(--teal-800);
+  color: white;
+  border: 1.5px solid transparent;
+  border-radius: 0.5rem;
+  transition: all ease-in-out 300ms;
+}
+
+form textarea:focus {
+  border-color: var(--teal-500);
+}
+
+textarea::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+.note-preview-text {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  padding: 0;
+  margin: 0;
+}
+
+#note-preview {
+  margin-top: 0.5rem;
+}
+
+#form-btn {
+  width: 12rem;
+  margin: 1.25rem auto 0;
+  background-color: var(--teal-800);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: var(--tracking-wider);
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+}
+
+#form-btn:hover,
+#form-btn:focus {
+  background-color: var(--teal-600);
+}
+
+/* Responsiveness */
+
+@media screen and (max-width: 768px) {
+  nav,
+  form {
+    width: 80%;
+  }
+}
+
+/* Utilities */
+.mr-6 {
+  margin-right: 1.25rem;
+}
+
+.ml-6 {
+  margin-left: 1.25rem;
+}
+
+.mt-6 {
+  margin-top: 1.25rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.25rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.active-link {
+  color: var(--teal-500);
+}
