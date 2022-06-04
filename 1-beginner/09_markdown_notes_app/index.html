@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="./style.css" />
     <title>Markdown Notes App</title>
   </head>
@@ -12,15 +11,15 @@
     <nav>
       <ul>
         <li class="mr-6">
-          <a href="#create" class="active-link">Create</a>
+          <a href="#create" id="create">Create</a>
         </li>
         <li class="ml-6">
-          <a href="#notes">Notes list</a>
+          <a href="#notes" id="notes">Notes list</a>
         </li>
       </ul>
     </nav>
 
-    <form>
+    <form class="hide">
       <textarea name="note-input" id="note-input" cols="30" rows="12" placeholder="Write your note..."></textarea>
 
       <div class="note-preview-container mt-6">
@@ -31,7 +30,14 @@
       <button id="form-btn" class="p-2">Create</button>
     </form>
 
+    <div id="notes-list-container" class="hide">
+      <h2>Notes</h2>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="./app.js"></script>
+    <script src="./utils.js" type="module"></script>
+    <script src="./localStorage.js" type="module"></script>
+    <script src="./crud.js" type="module"></script>
+    <script src="./app.js" type="module"></script>
   </body>
 </html>

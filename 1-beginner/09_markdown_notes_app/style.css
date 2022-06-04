@@ -19,6 +19,7 @@ body {
   background-color: var(--teal-900);
   color: white;
   padding-bottom: 1rem;
+  overflow-x: hidden;
 }
 
 nav,
@@ -52,9 +53,11 @@ nav a:focus {
 }
 
 /* Form Styles */
+
 form {
   display: flex;
   flex-direction: column;
+  transition: all ease-in-out 300ms;
 }
 
 form textarea,
@@ -111,6 +114,12 @@ textarea::-webkit-input-placeholder {
   background-color: var(--teal-600);
 }
 
+/* Notes List Styles */
+
+#notes-list-container {
+  transition: all ease-in-out 300ms;
+}
+
 /* Responsiveness */
 
 @media screen and (max-width: 768px) {
@@ -121,6 +130,7 @@ textarea::-webkit-input-placeholder {
 }
 
 /* Utilities */
+
 .mr-6 {
   margin-right: 1.25rem;
 }
@@ -143,4 +153,13 @@ textarea::-webkit-input-placeholder {
 
 .active-link {
   color: var(--teal-500);
+}
+
+.hide {
+  position: absolute;
+  left: 1000rem;
+  bottom: 1000rem;
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: -10;
 }
