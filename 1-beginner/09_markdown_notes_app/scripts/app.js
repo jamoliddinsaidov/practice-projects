@@ -1,4 +1,4 @@
-import { createNote, getAllNotes } from './crud.js'
+import { createNote, getAllNotes, deleteNote } from './crud.js'
 import { removeClass, addClass, getNoteTitle, createElement } from './utils.js'
 
 // Selectors
@@ -34,6 +34,8 @@ function renderPreview(e) {
 function submitForm(e) {
   e.preventDefault()
   createNote(noteInput.value)
+  showSuccessMsg()
+  cleanup()
 }
 
 function changePages(e) {
@@ -69,29 +71,54 @@ function renderNotesList() {
   }
   notesListContainer.innerHTML = ''
 
-  let notesTemplate = ''
-  notes.forEach(({ noteText, id }) => {
-    const noteTitle = getNoteTitle(noteText)
+  let notesTemplate = notes.reduce((template, { noteText, id }) => template + renderNoteTemplate(noteText, id), '')
+  notesListContainer.innerHTML = notesTemplate
 
-    notesTemplate += `<li data-id=${id}>
+  // add event listeners to note btns
+  const deleteBtns = notesListContainer.querySelectorAll('#delete-note-btn')
+  deleteBtns.forEach((btn) => btn.addEventListener('click', deleteNoteHandler))
+}
+
+function renderNoteTemplate(noteText, id) {
+  const noteTitle = getNoteTitle(noteText)
+
+  const template = `<li id=${id}>
         <p>${noteTitle}</p>                        
         <div>
           <button class="mr-6"><img src="./images/eye-solid.svg" alt="view"/></button>
           <button class="mr-6"><img src="./images/pencil-solid.svg" alt="edit"/></button>
-          <button><img src="./images/trash-solid.svg" alt="delete"/></button>
+          <button id="delete-note-btn"><img src="./images/trash-solid.svg" alt="delete"/></button>
         </div>
       </li>`
-  })
 
-  notesListContainer.innerHTML = notesTemplate
+  return template
 }
 
 function toggleNotesEmptyMsg() {
   const notesEmptyText = document.querySelector('#notes-list-container h3')
   const notes = getAllNotes()
 
-  console.log(notes.length)
-
   if (notes.length) addClass(notesEmptyText, 'hide')
   else removeClass(notesEmptyText, 'hide')
+}
+
+function deleteNoteHandler(e) {
+  const noteId = e.target.parentNode.parentNode.id
+  deleteNote(noteId)
+  renderNotesList()
+  toggleNotesEmptyMsg()
+}
+
+function showSuccessMsg() {
+  const succesMsgText = document.querySelector('.note-created-msg')
+  removeClass(succesMsgText, 'hide')
+
+  setTimeout(() => {
+    addClass(succesMsgText, 'hide')
+  }, 2000)
+}
+
+function cleanup() {
+  noteInput.value = ''
+  notePreview.innerHTML = ''
 }

@@ -15,4 +15,18 @@ function getNotesFromLocalStorage() {
   return notes
 }
 
-export { saveNoteToLocalStorage, getNotesFromLocalStorage }
+function getNoteByIdFromLocalStorage(id) {
+  const notes = getNotesFromLocalStorage()
+  const note = notes.find((n) => n.id == id)
+
+  return note
+}
+
+function deleteNoteFromLocalStorage(id) {
+  let notes = getNotesFromLocalStorage()
+  notes = notes.filter((note) => note.id != id)
+
+  localStorage.setItem('notes', JSON.stringify(notes))
+}
+
+export { saveNoteToLocalStorage, getNotesFromLocalStorage, getNoteByIdFromLocalStorage, deleteNoteFromLocalStorage }

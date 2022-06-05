@@ -22,6 +22,18 @@ body {
   overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--teal-900);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
 nav,
 form,
 #notes-list-container {
@@ -51,6 +63,13 @@ nav a {
 nav a:hover,
 nav a:focus {
   color: var(--teal-500);
+}
+
+.note-created-msg {
+  text-align: center;
+  margin-top: 1.5rem;
+  transition: all ease-in-out 300ms;
+  font-weight: 600;
 }
 
 /* Form Styles */
