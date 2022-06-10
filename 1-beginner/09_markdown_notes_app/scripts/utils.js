@@ -20,8 +20,8 @@ function getNoteTitle(noteText) {
   return noteText.slice(0, 12) + '...'
 }
 
-function createElement(element) {
-  return document.createElement(element)
+function getNoteId(e) {
+  return e.target.dataset.noteid
 }
 
-export { removeClass, addClass, generateId, getNoteTitle, createElement }
+export { removeClass, addClass, generateId, getNoteTitle, getNoteId }

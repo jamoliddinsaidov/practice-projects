@@ -4,13 +4,14 @@ import {
   getNoteByIdFromLocalStorage,
   deleteNoteFromLocalStorage,
 } from './localStorage.js'
-import { generateId } from './utils.js'
+import { generateId, getNoteTitle } from './utils.js'
 
-function createNote(noteText) {
+function createNote(markedNote, noteText) {
   const noteObj = {
     id: generateId(),
     createdDate: new Date(),
-    noteText,
+    title: getNoteTitle(noteText),
+    markedNote,
   }
 
   saveNoteToLocalStorage(noteObj)
@@ -23,7 +24,7 @@ function getAllNotes() {
 }
 
 function getNoteById(id) {
-  const note = getNoteByIdFromLocalStorage()
+  const note = getNoteByIdFromLocalStorage(id)
 
   return note
 }

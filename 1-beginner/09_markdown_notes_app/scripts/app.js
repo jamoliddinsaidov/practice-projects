@@ -1,5 +1,5 @@
-import { createNote, getAllNotes, deleteNote } from './crud.js'
-import { removeClass, addClass, getNoteTitle, createElement } from './utils.js'
+import { createNote, getAllNotes, deleteNote, getNoteById } from './crud.js'
+import { removeClass, addClass, getNoteTitle, getNoteId } from './utils.js'
 
 // Selectors
 const noteInput = document.querySelector('#note-input')
@@ -32,8 +32,11 @@ function renderPreview(e) {
 }
 
 function submitForm(e) {
+  const markedNote = marked.parse(noteInput.value)
+  const noteText = noteInput.value
+
   e.preventDefault()
-  createNote(noteInput.value)
+  createNote(markedNote, noteText)
   showSuccessMsg()
   cleanup()
 }
@@ -66,28 +69,26 @@ function renderNotesList() {
   const notesListContainer = document.querySelector('#notes-list')
   const notes = getAllNotes()
 
-  if (notesListContainer.childElementCount === notes.length) {
-    return
-  }
   notesListContainer.innerHTML = ''
 
-  let notesTemplate = notes.reduce((template, { noteText, id }) => template + renderNoteTemplate(noteText, id), '')
+  const notesTemplate = notes.reduce((template, { title, id }) => template + renderNoteTemplate(title, id), '')
   notesListContainer.innerHTML = notesTemplate
 
   // add event listeners to note btns
+  const viewBtns = notesListContainer.querySelectorAll('#view-note-btn')
   const deleteBtns = notesListContainer.querySelectorAll('#delete-note-btn')
+
+  viewBtns.forEach((btn) => btn.addEventListener('click', viewNoteHandler))
   deleteBtns.forEach((btn) => btn.addEventListener('click', deleteNoteHandler))
 }
 
-function renderNoteTemplate(noteText, id) {
-  const noteTitle = getNoteTitle(noteText)
-
-  const template = `<li id=${id}>
-        <p>${noteTitle}</p>                        
+function renderNoteTemplate(title, id) {
+  const template = `<li>
+        <p>${title}</p>                        
         <div>
-          <button class="mr-6"><img src="./images/eye-solid.svg" alt="view"/></button>
+          <button id="view-note-btn" class="mr-6" data-noteid=${id}><img src="./images/eye-solid.svg" alt="view"/></button>
           <button class="mr-6"><img src="./images/pencil-solid.svg" alt="edit"/></button>
-          <button id="delete-note-btn"><img src="./images/trash-solid.svg" alt="delete"/></button>
+          <button id="delete-note-btn" data-noteid=${id}><img src="./images/trash-solid.svg" alt="delete"/></button>
         </div>
       </li>`
 
@@ -102,8 +103,33 @@ function toggleNotesEmptyMsg() {
   else removeClass(notesEmptyText, 'hide')
 }
 
+function viewNoteHandler(e) {
+  const noteId = getNoteId(e)
+  const note = getNoteById(noteId)
+
+  // select all the single note related elements
+  const viewNoteContainer = document.querySelector('#single-note-container')
+  const viewNoteContent = viewNoteContainer.querySelector('.single-note-content')
+  const closeBtn = document.querySelector('.single-note-close-btn')
+
+  // insert content into note container
+  const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }
+  const createdDate = new Date(note.createdDate).toLocaleDateString('en-En', dateOptions)
+  const createdDateTemplate = `<p><strong>Created at:</strong> ${createdDate}</p>`
+
+  viewNoteContent.insertAdjacentHTML('afterbegin', createdDateTemplate)
+  viewNoteContent.insertAdjacentHTML('beforeend', note.markedNote)
+  addClass(viewNoteContainer, 'show-single-note-container')
+
+  // single note related listeners
+  closeBtn.addEventListener('click', () => {
+    removeClass(viewNoteContainer, 'show-single-note-container')
+    viewNoteContent.innerHTML = ''
+  })
+}
+
 function deleteNoteHandler(e) {
-  const noteId = e.target.parentNode.parentNode.id
+  const noteId = getNoteId(e)
   deleteNote(noteId)
   renderNotesList()
   toggleNotesEmptyMsg()
@@ -115,7 +141,7 @@ function showSuccessMsg() {
 
   setTimeout(() => {
     addClass(succesMsgText, 'hide')
-  }, 2000)
+  }, 1500)
 }
 
 function cleanup() {

@@ -18,7 +18,10 @@
         </li>
       </ul>
     </nav>
+
     <p class="note-created-msg hide">Note has been created</p>
+
+    <!-- create page -->
     <form class="hide">
       <textarea name="note-input" id="note-input" cols="30" rows="12" placeholder="Write your note..."></textarea>
 
@@ -30,11 +33,19 @@
       <button id="form-btn" class="p-2">Create</button>
     </form>
 
+    <!-- notes list page -->
     <div id="notes-list-container" class="hide">
       <h2>Notes</h2>
       <h3 class="hide">You haven't created any notes yet...</h3>
 
       <ul id="notes-list"></ul>
+    </div>
+
+    <!-- single note popup -->
+    <div id="single-note-container">
+      <button class="single-note-close-btn">X</button>
+      <h1>Note</h1>
+      <div class="single-note-content"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
