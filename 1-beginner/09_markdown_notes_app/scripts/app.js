@@ -1,5 +1,5 @@
-import { createNote, getAllNotes, deleteNote, getNoteById } from './crud.js'
-import { removeClass, addClass, getNoteTitle, getNoteId } from './utils.js'
+import { createNote, getAllNotes, deleteNote, getNoteById, editNote } from './crud.js'
+import { removeClass, addClass, getNoteId } from './utils.js'
 
 // Selectors
 const noteInput = document.querySelector('#note-input')
@@ -13,7 +13,7 @@ const formBtn = document.querySelector('#form-btn')
 
 // Event Listeners
 window.addEventListener('DOMContentLoaded', renderDefaultPage)
-noteInput.addEventListener('input', renderPreview)
+noteInput.addEventListener('input', (e) => renderPreview(e, notePreview))
 formBtn.addEventListener('click', submitForm)
 navLinks.forEach((navLink) => navLink.addEventListener('click', changePages))
 
@@ -25,19 +25,20 @@ function renderDefaultPage(e) {
   else renderCreatePage()
 }
 
-function renderPreview(e) {
+function renderPreview(e, element) {
   const { value } = e.target
   const parsedValue = marked.parse(value)
-  notePreview.innerHTML = parsedValue
+  element.innerHTML = parsedValue
 }
 
 function submitForm(e) {
-  const markedNote = marked.parse(noteInput.value)
   const noteText = noteInput.value
+  const markedNote = marked.parse(noteText)
+  const succesMsgElement = document.querySelector('.note-created-msg')
 
   e.preventDefault()
   createNote(markedNote, noteText)
-  showSuccessMsg()
+  showSuccessMsg(succesMsgElement)
   cleanup()
 }
 
@@ -76,9 +77,11 @@ function renderNotesList() {
 
   // add event listeners to note btns
   const viewBtns = notesListContainer.querySelectorAll('#view-note-btn')
+  const editBtns = notesListContainer.querySelectorAll('#edit-note-btn')
   const deleteBtns = notesListContainer.querySelectorAll('#delete-note-btn')
 
   viewBtns.forEach((btn) => btn.addEventListener('click', viewNoteHandler))
+  editBtns.forEach((btn) => btn.addEventListener('click', editNoteHandler))
   deleteBtns.forEach((btn) => btn.addEventListener('click', deleteNoteHandler))
 }
 
@@ -87,7 +90,7 @@ function renderNoteTemplate(title, id) {
         <p>${title}</p>                        
         <div>
           <button id="view-note-btn" class="mr-6" data-noteid=${id}><img src="./images/eye-solid.svg" alt="view"/></button>
-          <button class="mr-6"><img src="./images/pencil-solid.svg" alt="edit"/></button>
+          <button id="edit-note-btn" class="mr-6" data-noteid=${id}><img src="./images/pencil-solid.svg" alt="edit"/></button>
           <button id="delete-note-btn" data-noteid=${id}><img src="./images/trash-solid.svg" alt="delete"/></button>
         </div>
       </li>`
@@ -128,20 +131,61 @@ function viewNoteHandler(e) {
   })
 }
 
-function deleteNoteHandler(e) {
+function editNoteHandler(e) {
   const noteId = getNoteId(e)
+  const { id, noteText, markedNote } = getNoteById(noteId)
+
+  // select edit note form elements
+  const editNoteContainer = document.querySelector('.edit-note-container')
+  const editNoteInput = editNoteContainer.querySelector('#edit-note-input')
+  const editNotePreview = editNoteContainer.querySelector('#edit-note-preview')
+  const editFormBtn = editNoteContainer.querySelector('#edit-form-btn')
+  const cancelFormBtn = editNoteContainer.querySelector('#close-edit-form-btn')
+  const successMsgElement = editNoteContainer.querySelector('.note-edited-msg')
+
+  // insert content into elements
+  editNoteInput.value = noteText
+  editNotePreview.innerHTML = markedNote
+  addClass(editNoteContainer, 'show-edit-note-container')
+
+  // edit note related listeners
+  editNoteInput.addEventListener('input', (e) => renderPreview(e, editNotePreview))
+  editFormBtn.addEventListener('click', submitEditForm)
+  cancelFormBtn.addEventListener('click', cleanup)
+
+  function submitEditForm(e) {
+    const noteText = editNoteInput.value
+    const markedNote = marked.parse(noteText)
+
+    e.preventDefault()
+    editNote(id, markedNote, noteText)
+    showSuccessMsg(successMsgElement)
+    setTimeout(() => {
+      cleanup()
+      window.location.reload()
+    }, 1000)
+  }
+
+  function cleanup() {
+    removeClass(editNoteContainer, 'show-edit-note-container')
+    editNoteInput.value = ''
+    editNotePreview.innerHTML = ''
+  }
+}
+
+function deleteNoteHandler(e) {
+  noteId = getNoteId(e)
   deleteNote(noteId)
   renderNotesList()
   toggleNotesEmptyMsg()
 }
 
-function showSuccessMsg() {
-  const succesMsgText = document.querySelector('.note-created-msg')
-  removeClass(succesMsgText, 'hide')
+function showSuccessMsg(successMsgElement) {
+  removeClass(successMsgElement, 'hide')
 
   setTimeout(() => {
-    addClass(succesMsgText, 'hide')
-  }, 1500)
+    addClass(successMsgElement, 'hide')
+  }, 1200)
 }
 
 function cleanup() {

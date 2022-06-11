@@ -29,4 +29,23 @@ function deleteNoteFromLocalStorage(id) {
   localStorage.setItem('notes', JSON.stringify(notes))
 }
 
-export { saveNoteToLocalStorage, getNotesFromLocalStorage, getNoteByIdFromLocalStorage, deleteNoteFromLocalStorage }
+function editNoteFromLocalStorage(noteObj) {
+  const { id } = noteObj
+
+  let notes = getNotesFromLocalStorage()
+  notes = notes.map((note) => {
+    if (note.id == id) note = noteObj
+
+    return note
+  })
+
+  localStorage.setItem('notes', JSON.stringify(notes))
+}
+
+export {
+  saveNoteToLocalStorage,
+  getNotesFromLocalStorage,
+  getNoteByIdFromLocalStorage,
+  deleteNoteFromLocalStorage,
+  editNoteFromLocalStorage,
+}

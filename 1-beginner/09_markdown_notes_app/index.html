@@ -44,9 +44,28 @@
     <!-- single note popup -->
     <div id="single-note-container">
       <button class="single-note-close-btn">X</button>
-      <h1>Note</h1>
+      <h1 class="single-note-heading">Note</h1>
       <div class="single-note-content"></div>
     </div>
+
+    <!-- edit page -->
+    <form class="edit-note-container">
+      <h1 class="single-note-heading">Edit the note</h1>
+
+      <p class="note-edited-msg hide">Note has been updated</p>
+
+      <textarea id="edit-note-input" cols="30" rows="15" placeholder="Write your note..."></textarea>
+
+      <div class="note-preview-container mt-6">
+        <p class="note-preview-text">Preview</p>
+        <div id="edit-note-preview"></div>
+      </div>
+
+      <div class="edit-btns">
+        <button id="edit-form-btn" class="p-2">Edit</button>
+        <button id="close-edit-form-btn" class="p-2">Close</button>
+      </div>
+    </form>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="./scripts/utils.js" type="module"></script>

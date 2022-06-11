@@ -3,6 +3,7 @@ import {
   getNotesFromLocalStorage,
   getNoteByIdFromLocalStorage,
   deleteNoteFromLocalStorage,
+  editNoteFromLocalStorage,
 } from './localStorage.js'
 import { generateId, getNoteTitle } from './utils.js'
 
@@ -12,6 +13,7 @@ function createNote(markedNote, noteText) {
     createdDate: new Date(),
     title: getNoteTitle(noteText),
     markedNote,
+    noteText,
   }
 
   saveNoteToLocalStorage(noteObj)
@@ -33,4 +35,16 @@ function deleteNote(id) {
   deleteNoteFromLocalStorage(id)
 }
 
-export { createNote, getAllNotes, getNoteById, deleteNote }
+function editNote(id, markedNote, noteText) {
+  const noteObj = {
+    createdDate: new Date(),
+    title: getNoteTitle(noteText),
+    id,
+    markedNote,
+    noteText,
+  }
+
+  editNoteFromLocalStorage(noteObj)
+}
+
+export { createNote, getAllNotes, getNoteById, deleteNote, editNote }

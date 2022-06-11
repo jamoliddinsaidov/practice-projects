@@ -65,7 +65,8 @@ nav a:focus {
   color: var(--teal-500);
 }
 
-.note-created-msg {
+.note-created,
+.note-edited-msg {
   text-align: center;
   margin-top: 1.5rem;
   transition: all ease-in-out 300ms;
@@ -91,6 +92,7 @@ form textarea,
   border: 1.5px solid transparent;
   border-radius: 0.5rem;
   transition: all ease-in-out 300ms;
+  resize: vertical;
 }
 
 form textarea:focus {
@@ -113,7 +115,9 @@ textarea::-webkit-input-placeholder {
   margin-top: 0.5rem;
 }
 
-#form-btn {
+#form-btn,
+#edit-form-btn,
+#close-edit-form-btn {
   width: 12rem;
   margin: 1.25rem auto 0;
   background-color: var(--teal-800);
@@ -178,7 +182,8 @@ textarea::-webkit-input-placeholder {
 }
 
 /* Single Note Styles */
-#single-note-container {
+#single-note-container,
+.edit-note-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -192,7 +197,7 @@ textarea::-webkit-input-placeholder {
   flex-direction: column;
 }
 
-#single-note-container h1 {
+.single-note-heading {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -204,29 +209,52 @@ textarea::-webkit-input-placeholder {
   padding-bottom: 3rem;
 }
 
-.single-note-close-btn {
+.single-note-close-btn,
+.edit-note-close-btn {
   align-self: flex-end;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   background-color: var(--teal-600);
   color: white;
   border: 1px solid transparent;
   border-left-color: var(--teal-400);
   border-bottom-color: var(--teal-400);
-  border-bottom-left-radius: 1rem;
+  border-bottom-left-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
   opacity: 0.7;
   transition: all ease-in-out 300ms;
 }
 
-.single-note-close-btn:hover {
+.single-note-close-btn:hover,
+.edit-note-close-btn:hover {
   opacity: 1;
 }
 
-.show-single-note-container {
+.show-single-note-container,
+.show-edit-note-container {
   z-index: 10 !important;
   opacity: 1 !important;
+}
+
+.edit-note-container {
+  margin-top: -2rem;
+  width: 60%;
+  height: 90vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.edit-note-container textarea {
+  min-height: 55vh;
+  overflow-x: hidden;
+}
+
+.edit-btns {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 3rem;
 }
 
 /* Responsiveness */
