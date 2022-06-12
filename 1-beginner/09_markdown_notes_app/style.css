@@ -65,7 +65,7 @@ nav a:focus {
   color: var(--teal-500);
 }
 
-.note-created,
+.note-created-msg,
 .note-edited-msg {
   text-align: center;
   margin-top: 1.5rem;
