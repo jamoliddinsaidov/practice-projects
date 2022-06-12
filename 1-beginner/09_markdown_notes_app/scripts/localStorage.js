@@ -1,11 +1,3 @@
-function saveNoteToLocalStorage(note) {
-  let notes = getNotesFromLocalStorage()
-  notes.push(note)
-  notes = JSON.stringify(notes)
-
-  localStorage.setItem('notes', notes)
-}
-
 function getNotesFromLocalStorage() {
   let notes
 
@@ -13,6 +5,14 @@ function getNotesFromLocalStorage() {
   else notes = JSON.parse(localStorage.getItem('notes'))
 
   return notes
+}
+
+function saveNoteToLocalStorage(note) {
+  let notes = getNotesFromLocalStorage()
+  notes.push(note)
+  notes = JSON.stringify(notes)
+
+  localStorage.setItem('notes', notes)
 }
 
 function getNoteByIdFromLocalStorage(id) {

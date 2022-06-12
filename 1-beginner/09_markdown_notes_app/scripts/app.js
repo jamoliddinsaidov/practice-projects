@@ -160,16 +160,14 @@ function editNoteHandler(e) {
     e.preventDefault()
     editNote(id, markedNote, noteText)
     showSuccessMsg(successMsgElement)
-    setTimeout(() => {
-      cleanup()
-      window.location.reload()
-    }, 1000)
+    setTimeout(cleanup, 1000)
   }
 
   function cleanup() {
     removeClass(editNoteContainer, 'show-edit-note-container')
     editNoteInput.value = ''
     editNotePreview.innerHTML = ''
+    renderNotesList()
   }
 }
 
