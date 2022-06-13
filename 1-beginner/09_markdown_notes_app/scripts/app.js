@@ -32,11 +32,13 @@ function renderPreview(e, element) {
 }
 
 function submitForm(e) {
+  e.preventDefault()
   const noteText = noteInput.value
   const markedNote = marked.parse(noteText)
   const succesMsgElement = document.querySelector('.note-created-msg')
 
-  e.preventDefault()
+  if (!noteText.length) return
+
   createNote(markedNote, noteText)
   showSuccessMsg(succesMsgElement)
   cleanup()
@@ -154,10 +156,13 @@ function editNoteHandler(e) {
   cancelFormBtn.addEventListener('click', cleanup)
 
   function submitEditForm(e) {
+    e.preventDefault()
+
     const noteText = editNoteInput.value
     const markedNote = marked.parse(noteText)
 
-    e.preventDefault()
+    if (!noteText.length) return
+
     editNote(id, markedNote, noteText)
     showSuccessMsg(successMsgElement)
     setTimeout(cleanup, 1000)
