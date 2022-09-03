@@ -5,25 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./app.js" defer></script>
     <title>Word Frequency Counter</title>
   </head>
-  <body class="flex flex-col items-center lg:w-1/2 md:w-4/5 w-11/12 my-6 mx-auto text-zinc-800">
+  <body class="flex flex-col items-center lg:w-1/2 md:w-4/5 w-11/12 my-4 mx-auto text-zinc-800">
     <h1 class="text-2xl sm:text-3xl font-bold text-inherit">Word Frequency Counter</h1>
-
-    <form class="w-4/5 my-6">
+    <p class="text-md text-red-500 mt-4 opacity-0 transition-opacity" id="alert-text">
+      You can't write more than 2048 characters
+    </p>
+    <form class="w-4/5 my-4">
       <textarea
         class="w-full h-48 outline-none border border-zinc-300 focus:border-green-400 text-md p-2 resize-none transition-colors text-inherit"
         id="words-input"
         maxlength="2048"
         required
       >
-Paste your text content here! (Max 2048 characters)</textarea
+Paste your text content here! (max 2048 characters)</textarea
       >
 
       <input
         class="w-full p-2 mt-4 outline-none bg-zinc-300 focus:bg-green-400 hover:bg-green-400 focus:text-white hover:text-white text-lg font-bold cursor-pointer transition-colors text-inherit"
         type="submit"
         value="Count Those Words"
+        id="count-btn"
       />
     </form>
 
@@ -36,7 +40,5 @@ Paste your text content here! (Max 2048 characters)</textarea
       </thead>
       <tbody></tbody>
     </table>
-
-    <script src="./app.js"></script>
   </body>
 </html>
