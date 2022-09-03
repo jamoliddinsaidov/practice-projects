@@ -1,6 +1,7 @@
 // Selectors & Variables
 const wordsInput = document.getElementById('words-input')
 const countBtn = document.getElementById('count-btn')
+const countTxt = document.getElementById('count-text')
 
 // Event Listeners
 wordsInput.addEventListener('input', handleWordsInputChange)
@@ -8,7 +9,10 @@ countBtn.addEventListener('click', handleCountBtnClick)
 
 // Functions
 function handleWordsInputChange(e) {
-  if (e.target.value.length >= 2048) {
+  const wordsCount = e.target.value.length
+  countTxt.innerText = wordsCount
+
+  if (wordsCount >= 2048) {
     showAlert()
   }
 }
@@ -72,9 +76,9 @@ function renderTable(words) {
     addClass(tdWord, tdClasses)
 
     if (index % 2 !== 0) {
-      addClass(tr, oddTrClasses)
-    } else {
       addClass(tr, evenTrClasses)
+    } else {
+      addClass(tr, oddTrClasses)
     }
 
     tr.appendChild(tdCount)
