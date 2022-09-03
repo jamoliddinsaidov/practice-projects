@@ -5,9 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Ford Frequency Counter</title>
+    <title>Word Frequency Counter</title>
   </head>
-  <body>
-    <script src="./scripts/app.js"></script>
+  <body class="flex flex-col items-center lg:w-1/2 md:w-4/5 w-11/12 my-6 mx-auto text-zinc-800">
+    <h1 class="text-2xl sm:text-3xl font-bold text-inherit">Word Frequency Counter</h1>
+
+    <form class="w-4/5 my-6">
+      <textarea
+        class="w-full h-48 outline-none border border-zinc-300 focus:border-green-400 text-md p-2 resize-none transition-colors text-inherit"
+        id="words-input"
+        maxlength="2048"
+        required
+      >
+Paste your text content here! (Max 2048 characters)</textarea
+      >
+
+      <input
+        class="w-full p-2 mt-4 outline-none bg-zinc-300 focus:bg-green-400 hover:bg-green-400 focus:text-white hover:text-white text-lg font-bold cursor-pointer transition-colors text-inherit"
+        type="submit"
+        value="Count Those Words"
+      />
+    </form>
+
+    <table class="w-4/5 border-collapse table-auto opacity-0">
+      <thead class="bg-green-400 text-white text-lg text-left">
+        <tr>
+          <th class="py-2 w-1/4">Count</th>
+          <th class="py-2 w-3/4">Word</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="./app.js"></script>
   </body>
 </html>
