@@ -1,6 +1,10 @@
 # Dynamic CSS Variables
 
-Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/08_dynamic_css_variables/index.html)
+The goal of this app is to dynamically change the background color of text boxes changing CSS variables. Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/08_dynamic_css_variables/index.html).
+
+## Preview
+
+![Input Example](./images/demo.png 'Preview')
 
 ## User Stories
 

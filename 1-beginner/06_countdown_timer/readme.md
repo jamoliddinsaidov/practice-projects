@@ -1,10 +1,12 @@
 # Countdown Timer
 
-Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/06_countdown_timer/index.html)
+We all have important events we look forward to in life, birthdays, anniversaries, and holidays to name a few. Wouldn't it be nice to have an app that counts down the months, days, hours, minutes, and seconds to an event? Countdown Timer is just that app!
+
+The objective of Countdown Timer is to provide a continuously decrementing display of the months, days, hours, minutes, and seconds to a user entered event. Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/06_countdown_timer/index.html).
 
 ## Preview
 
-![Input example](./example.png 'Preview')
+![Input Example](./images/demo.png 'Preview')
 
 ## User Stories
 

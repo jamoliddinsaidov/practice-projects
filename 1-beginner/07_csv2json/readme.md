@@ -1,10 +1,10 @@
 # CSV2JSON
 
-Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/07_csv2json/index.html)
+The application allows basic CSV to JSON conversion. Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/07_csv2json/index.html).
 
 ## Preview
 
-![Input example](./example.png 'Preview')
+![Input Example](./images/demo.png 'Preview')
 
 ## User Stories
 

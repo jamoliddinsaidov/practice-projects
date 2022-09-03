@@ -1,6 +1,10 @@
 # Border Radius Previewer
 
-Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/02_border_radius_previewer/index.html)
+The border-radius property can have multiple values changed. The application enables the preview of how the shape looks while changing those values. Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/02_border_radius_previewer/index.html).
+
+## Preview
+
+![Input Example](./images/demo.png 'Preview')
 
 ## User Stories
 

@@ -2,6 +2,10 @@
 
 Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/03_calculator/index.html)
 
+## Preview
+
+![Input Example](./images/demo.png 'Preview')
+
 ## User Stories
 
 - [x] User can see a display showing the current number entered or the result of the last operation.

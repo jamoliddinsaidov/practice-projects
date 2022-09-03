@@ -1,10 +1,10 @@
 # Markdown Notes App
 
-Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/09_markdown_notes_app/index.html)
+The application allows users to create notes using [Markdown](https://www.markdownguide.org/). In addition, users can delete or edit the existing notes. All the notes are stored in the browser's memory. Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/09_markdown_notes_app/index.html).
 
 ## Preview
 
-![Input Example](./images/demo-1.png 'Preview')
+![Input Example](./images/demo.png 'Preview')
 
 ## User Stories
 

@@ -1,12 +1,10 @@
 # Word Frequency Counter
 
-The objective of the Word Frequency app is count the frequency of words in a block of text and create a tabular display of each unique word in the text along with its frequency, in descending order by frequency.
-
-Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/10_word_frequency_counter/index.html)
+The objective of the Word Frequency app is count the frequency of words in a block of text and create a tabular display of each unique word in the text along with its frequency, in descending order by frequency. Demo can be found [here](https://jamoliddinsaidov.github.io/practice-projects/1-beginner/10_word_frequency_counter/index.html).
 
 ## Preview
 
-![Input Example](./images/demo-1.png 'Preview')
+![Input Example](./images/demo.png 'Preview')
 
 ## User Stories
 
