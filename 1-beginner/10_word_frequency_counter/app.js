@@ -1,37 +1,40 @@
 // Selectors & Variables
 const wordsInput = document.getElementById('words-input')
 const countBtn = document.getElementById('count-btn')
-const table = document.querySelector('table')
-const tableBody = document.querySelector('tbody')
-const alertText = document.getElementById('alert-text')
 
 // Event Listeners
 wordsInput.addEventListener('input', handleWordsInputChange)
+countBtn.addEventListener('click', handleCountBtnClick)
 
 // Functions
 function handleWordsInputChange(e) {
-  console.log(e.target.value.length)
-
   if (e.target.value.length >= 2048) {
     showAlert()
-    return
   }
 }
 
-function showAlert() {
-  removeClass(alertText, 'opacity-0')
-
-  setTimeout(() => {
-    addClass(alertText, 'opacity-0')
-  }, 3500)
+function handleCountBtnClick(e) {
+  e.preventDefault()
+  const words = cleanInput(wordsInput.value).split(' ')
+  const countedWords = countWords(words)
+  const orderedWords = orderInDescendingSequence(countedWords)
+  renderTable(orderedWords)
 }
 
-function addClass(element, className) {
-  element.classList.add(className)
-}
+function countWords(words) {
+  const countedWords = {}
 
-function removeClass(element, className) {
-  element.classList.remove(className)
+  for (const word of words) {
+    const cleanWord = cleanInput(word)
+
+    if (cleanWord in countedWords) {
+      countedWords[cleanWord] = { ...countedWords[cleanWord], count: countedWords[cleanWord].count + 1 }
+    } else {
+      countedWords[cleanWord] = { value: word, count: 1 }
+    }
+  }
+
+  return countedWords
 }
 
 function cleanInput(str) {
@@ -42,6 +45,71 @@ function cleanInput(str) {
     .toLowerCase()
 }
 
-// odd tr classes - hover:bg-zinc-300 bg-zinc-200
-// even tr classes - hover:bg-zinc-300
-// td classes - p-2 border text-lg
+function orderInDescendingSequence(words) {
+  const wordValues = Object.values(words)
+  return wordValues.sort((firstWord, secondsWord) => secondsWord.count - firstWord.count)
+}
+
+function renderTable(words) {
+  const table = document.querySelector('table')
+  const tableBody = document.querySelector('tbody')
+  const tdClasses = ['p-2', 'border', 'text-lg']
+  const oddTrClasses = ['hover:bg-zinc-300', 'bg-zinc-200']
+  const evenTrClasses = ['hover:bg-zinc-300']
+
+  tableBody.innerHTML = ''
+
+  words.forEach((word, index) => {
+    const { value, count } = word
+    const tr = createElement('tr')
+
+    const tdCount = createElement('td')
+    tdCount.innerText = count
+    addClass(tdCount, tdClasses)
+
+    const tdWord = createElement('td')
+    tdWord.innerText = value
+    addClass(tdWord, tdClasses)
+
+    if (index % 2 !== 0) {
+      addClass(tr, oddTrClasses)
+    } else {
+      addClass(tr, evenTrClasses)
+    }
+
+    tr.appendChild(tdCount)
+    tr.appendChild(tdWord)
+    tableBody.appendChild(tr)
+  })
+
+  removeClass(table, 'opacity-0')
+}
+
+function showAlert() {
+  const alertText = document.getElementById('alert-text')
+  removeClass(alertText, 'opacity-0')
+
+  setTimeout(() => {
+    addClass(alertText, 'opacity-0')
+  }, 3500)
+}
+
+function addClass(element, classNames) {
+  if (Array.isArray(classNames)) {
+    element.classList.add(...classNames)
+  } else {
+    element.classList.add(classNames)
+  }
+}
+
+function removeClass(element, classNames) {
+  if (Array.isArray(classNames)) {
+    element.classList.remove(...classNames)
+  } else {
+    element.classList.remove(classNames)
+  }
+}
+
+function createElement(elType) {
+  return document.createElement(elType)
+}
