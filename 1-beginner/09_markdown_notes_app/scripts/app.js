@@ -177,7 +177,7 @@ function editNoteHandler(e) {
 }
 
 function deleteNoteHandler(e) {
-  noteId = getNoteId(e)
+  const noteId = getNoteId(e)
   deleteNote(noteId)
   renderNotesList()
   toggleNotesEmptyMsg()
