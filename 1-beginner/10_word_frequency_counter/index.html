@@ -11,20 +11,20 @@
   <body class="flex flex-col items-center lg:w-1/2 md:w-4/5 w-11/12 my-4 mx-auto text-zinc-800">
     <h1 class="text-2xl sm:text-3xl font-bold text-inherit">Word Frequency Counter</h1>
     <p class="text-md text-red-500 mt-4 opacity-0 transition-opacity" id="alert-text">
-      You can't write more than 2048 characters
+      You can't write more than 4096 characters
     </p>
     <form class="w-4/5 my-4">
       <textarea
-        class="w-full h-48 outline-none border border-zinc-300 focus:border-orange-400 text-md p-2 resize-none transition-colors text-inherit rounded"
+        class="w-full h-64 outline-none border border-zinc-300 focus:border-orange-400 text-md p-2 resize-none transition-colors text-inherit rounded"
         id="words-input"
         maxlength="2048"
         required
       >
-Paste your text content here! (max 2048 characters)</textarea
+Paste your text content here! (max 4096 characters)</textarea
       >
 
       <div class="flex items-center justify-space-between mt-4">
-        <p class="bg-zinc-300 p-2 text-lg rounded"><span id="count-text">51</span>/2048</p>
+        <p class="bg-zinc-300 p-2 text-lg rounded"><span id="count-text">51</span>/4096</p>
         <input
           class="w-1/2 ml-auto p-2 outline-none bg-zinc-300 focus:bg-orange-400 hover:bg-orange-400 focus:text-white hover:text-white text-lg font-bold cursor-pointer transition-colors text-inherit rounded"
           type="submit"

@@ -12,7 +12,7 @@ function handleWordsInputChange(e) {
   const wordsCount = e.target.value.length
   countTxt.innerText = wordsCount
 
-  if (wordsCount >= 2048) {
+  if (wordsCount >= 4096) {
     showAlert()
   }
 }
@@ -20,6 +20,7 @@ function handleWordsInputChange(e) {
 function handleCountBtnClick(e) {
   e.preventDefault()
   const words = cleanInput(wordsInput.value).split(' ')
+  console.log(words)
   const countedWords = countWords(words)
   const orderedWords = orderInDescendingSequence(countedWords)
   renderTable(orderedWords)
@@ -45,6 +46,7 @@ function cleanInput(str) {
   return str
     .replace(/[?.!,"\(\)]/g, '')
     .replace(/[ ]{2,}/g, '')
+    .replace(/\r?\n|\r/g, ' ')
     .trim()
     .toLowerCase()
 }
