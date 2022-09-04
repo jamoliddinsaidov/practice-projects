@@ -20,7 +20,6 @@ function handleWordsInputChange(e) {
 function handleCountBtnClick(e) {
   e.preventDefault()
   const words = cleanInput(wordsInput.value).split(' ')
-  console.log(words)
   const countedWords = countWords(words)
   const orderedWords = orderInDescendingSequence(countedWords)
   renderTable(orderedWords)
